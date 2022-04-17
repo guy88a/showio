@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+    <!-- =============================== HEADER & CONFIGURATION =============================== -->
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal" />
+
+    <!-- description -->
+    <title>Show IO</title>
+    <meta name="description" content="2D Canvas Game Engine" />
+    <meta name="Chief Theater" />
+
+    <!-- favicon -->
+    <link href="./favicon.ico"      rel="icon" />
+    <link href="./favicon.svg"      rel="icon"       type="image/svg+xml">
+
+    <!-- css -->
+    <link href="./css/main.css"     rel="stylesheet" type="text/css" />
+
+    <!-- ======================================== BODY ======================================== -->
+    <body>
+        
+        <!-- main content -->
+        <div id="showio-wrapper" class="app-content">
+            <div class="app-content__stage-elements">
+                <!-- main canvas -->
+                <canvas id="showio-stage"
+                        class="app-content__stage-elements__stage"
+                        width="800" height="600">
+                </canvas>
+                <div class="app-content__stage-elements__sound">
+                    <audio id="showio-stage-audio" />
+                </div>
+            </div>
+            <div class="app-content__backstage-elements">
+                <!-- off canvas -->
+                <canvas id="showio-backstage"
+                        class="app-content__backstage-elements__backstage"
+                        width="800" height="600">
+                </canvas>
+                <div class="app-content__backstage-elements__sound">
+                    <audio id="showio-backstage-audio" />
+                </div>
+            </div>
+        </div>
+
+    <!-- ==================================== MAIN SCRIPTS ==================================== -->
+    <script href="./js/index,js"    type="text/javascript"></script>
+    </body>
+
+</html>
