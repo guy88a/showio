@@ -1,3 +1,14 @@
+<!-- :::::::::::::::::::::::::::::::::::::::::: <INDEX> :::::::::::::::::::::::::::::::::::::::::::
+# GAME VERSION: 0.00.001
+- FILE VERSION: 1.00.000
+- INFO:
+    main html file. contains following engine elements:
+        1) Projector
+        2) Stage
+        3) Backstage
+    also contains backstage elements for preloading and off rendering.
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
 <!doctype html>
 
 <html lang="en">
@@ -25,20 +36,26 @@
         <div id="showio-wrapper" class="app-content">
             <div class="app-content__stage-elements">
                 <!-- main canvas -->
-                <canvas id="showio-stage"
-                        class="app-content__stage-elements__stage"
+                <canvas id="showio-projector"
+                        class="app-content__stage-elements__projector"
                         width="800" height="600">
                 </canvas>
+                <div id="showio-stage" class="app-content__stage-elements__stage">
+                    <!-- Stage UI -->
+                </div>
                 <div class="app-content__stage-elements__sound">
                     <audio id="showio-stage-audio" />
                 </div>
             </div>
             <div class="app-content__backstage-elements">
                 <!-- off canvas -->
-                <canvas id="showio-backstage"
-                        class="app-content__backstage-elements__backstage"
+                <canvas id="showio-side-projector"
+                        class="app-content__backstage-elements__side-projector"
                         width="800" height="600">
                 </canvas>
+                <div id="showio-backstage" class="app-content__backstage-elements__backstage">
+                    <!-- Backstage UI -->
+                </div>
                 <div class="app-content__backstage-elements__sound">
                     <audio id="showio-backstage-audio" />
                 </div>
@@ -47,6 +64,7 @@
 
     <!-- ==================================== MAIN SCRIPTS ==================================== -->
     <script href="./js/index.js"    type="text/javascript"></script>
+    
     </body>
 
 </html>

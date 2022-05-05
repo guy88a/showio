@@ -1,0 +1,6 @@
+@import './reset';
+@import './fonts';
+
+@mixin settings($font-size: 16) {
+    @include reset($font-size);
+}
