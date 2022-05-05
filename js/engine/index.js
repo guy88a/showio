@@ -6,40 +6,50 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 /**
- * @param {Array}  dimensions   | game dimensions (width, height)
- * @param {Number} genre        | game genre/type: 1 - FPS
- * @param {Object} settings     | additional settings and configurations
+ * @param {Array}  dimensions   | default shows dimensions (width, height)
+ * @param {Number} mobile       | adjust for mobile if value is 1
  * 
- * @returns {Object}        | ShowIO's API
+ * @returns {Object}            | ShowIO's API
  */
 export default function ShowIO(
-    dimensions = [800, 600],
-    genre = 1,
-    settings = {}
+    dimensions  = [1920, 1080],
+    mobile      = 0
 ){
-
+    
     // =================================== MAIN CONFIGURATIONS ====================================
-    let activeShow = {}
+    let activeShow = function(){};
     this.activeShow = activeShow;
 
-    let allShows = []
+    let allShows = [];
     this.allShows = allShows;
 
-    let showManager = function() {};
+    let showManager = function(){};
     this.showManager = showManager;
 
     // ======================================= MAIN METHODS =======================================
     /**
+     * Play Show
+     *  plays current active show
+     * @param {Number} frameId  | if exists, return to a saved show's frame
+     */
+    function playShow(frameId = 0) {
+        return this.activeShow.play(frameId);
+    }
+
+    /**
      * Create New Show
      *  ganerate a new game show
+     * @param {String} name     | name of new show
      */
-    function createNewShow() {
-        return allShows.push({});
+    function createNewShow(name = 'New Show') {
+        return allShows.push(function(){});
     }
     
     // ========================================== RETURN ==========================================
     return {
-        createNewGame: createNewGame,
+        run: playShow,
+        createNewShow: createNewShow,
     }
+
 }
 /* ShowIO Ends */
