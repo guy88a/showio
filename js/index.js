@@ -8,4 +8,4 @@ import ShowIO from './engine/index.js';
 
 window.ShowIO = window.ShowIO 
                 || typeof ShowIO === 'function' && ShowIO
-                || function() {};
+                || function(){};
