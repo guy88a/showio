@@ -44,7 +44,7 @@ export default function Logger(isTest = 0, forceTrace = 0) {
             return consoleMethod(`%cShowIO:%c${link}%c${messageRest}`, `${STYLE_TITLE}; background-color: ${titleBackgroundColor}`, `${STYLE_LINK}`, `${STYLE_MESSAGE};`);
         }
         
-        console.log(`%cShowIO:%c${message}`, `${STYLE_TITLE}; background-color: ${this || '#e2e2e2'}`, `${STYLE_MESSAGE};`);
+        console.log(`%cShowIO:%c${message}`, `${STYLE_TITLE}; background-color: ${titleBackgroundColor}`, `${STYLE_MESSAGE};`);
     }
 
     function extractMessageLink(str){
