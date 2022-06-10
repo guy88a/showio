@@ -1,32 +1,45 @@
 /* :::::::::::::::::::::::::::::::::::::::::: {SHOW IO} :::::::::::::::::::::::::::::::::::::::::::
 # GAME VERSION: 0.00.001
-- FILE VERSION: 1.00.000
+- FILE VERSION: 1.00.001
 - INFO:
     ...info
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 /**
- * @param {Array}  dimensions   | default shows dimensions (width, height)
- * @param {Number} mobile       | adjust for mobile if value is 1
+ * @param {Array}  dimensions           | default shows dimensions (width, height)
+ * @param {Number} mobile               | adjust for mobile if value is 1
+ * @param {Function} defalutConfigs     | general configurations
+ * @param {Array}  defaultShowsArray    | array of shows configured ahead
+ * @param {Array}  classicShowsArray    | array of another framework's games instances
  * 
  * @returns {Object}            | ShowIO's API
  */
 export default function ShowIO(
     dimensions  = [1920, 1080],
-    mobile      = 0
+    mobile      = 0,
+    defalutConfigs = function(){},
+    defaultShowsArray = [],
+    classicShowsArray = [], //TODO: Implement
 ){
     
     // =================================== MAIN CONFIGURATIONS ====================================
-    let activeShow = function(){};
+    let configurations = function(defalutConfigs){ return { ...defalutConfigs } };
+    this.configurations = configurations;
+
+    let activeShow = function(id = 0){};
     this.activeShow = activeShow;
 
-    let allShows = [];
+    let allShows = [...defaultShowsArray];
     this.allShows = allShows;
 
-    let showManager = function(){};
-    this.showManager = showManager;
+    let showsManager = function(shows = []){};
+    this.showsManager = showsManager;
 
     // ======================================= MAIN METHODS =======================================
+    function prepareShow() {
+        //TODO: Implement
+    }
+
     /**
      * Play Show
      *  plays current active show
@@ -34,6 +47,14 @@ export default function ShowIO(
      */
     function playShow(frameId = 0) {
         return this.activeShow.play(frameId);
+    }
+
+    function cutCurrentShow() {
+        //TODO: Implement
+    }
+
+    function endShow(rameId = 0) {
+        //TODO: Implement
     }
 
     /**
@@ -47,8 +68,12 @@ export default function ShowIO(
     
     // ========================================== RETURN ==========================================
     return {
+        prepare: prepareShow,
         run: playShow,
-        createNewShow: createNewShow,
+        cut: cutCurrentShow,
+        end: endShow,
+
+        produceNewShow: createNewShow,
     }
 
 }
