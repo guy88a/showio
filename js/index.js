@@ -7,13 +7,15 @@
 import ShowIO from './engine/ShowIO.js';
 import Logger from './assets/Logger.js'
 
-var _ = new Logger(1);
+window._ = new Logger(1, 1);
 
-_.info("'Index.js' is loading");
-_.log("Hello Show!");
+_.info("'Index.js' is loading...");
 
 window.ShowIO = window.ShowIO 
-                || typeof ShowIO === 'function' && ShowIO
+                || typeof ShowIO === 'function' && ShowIO()
                 || function(){ return { message: 'no ShowIO function available' }; };
      
-_.success("'Index.js' loaded");
+_.success("'Index.js' loaded!");
+_.warn("'Index.js' loaded warning test!");
+_.error("error test");
+_.warn("warning test!");

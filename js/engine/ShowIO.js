@@ -17,23 +17,19 @@
 export default function ShowIO(
     dimensions  = [1920, 1080],
     mobile      = 0,
-    defalutConfigs = function(){},
+    defalutConfigs = {},
     defaultShowsArray = [],
     classicShowsArray = [], //TODO: Implement
 ){
     
     // =================================== MAIN CONFIGURATIONS ====================================
-    let configurations = function(defalutConfigs){ return { ...defalutConfigs } };
-    this.configurations = configurations;
+    let configurations = defalutConfigs || {};
 
     let activeShow = function(id = 0){};
-    this.activeShow = activeShow;
 
     let allShows = [...defaultShowsArray];
-    this.allShows = allShows;
 
     let showsManager = function(shows = []){};
-    this.showsManager = showsManager;
 
     // ======================================= MAIN METHODS =======================================
     function prepareShow() {
@@ -65,6 +61,8 @@ export default function ShowIO(
     function createNewShow(name = 'New Show') {
         return allShows.push(function(){});
     }
+
+    _.log("Hello Show!");
     
     // ========================================== RETURN ==========================================
     return {
