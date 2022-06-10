@@ -7,7 +7,7 @@
 import ShowIO from './engine/ShowIO.js';
 import Logger from './assets/Logger.js'
 
-window._ = new Logger(1, 1);
+window._ = new Logger(1);
 
 _.info("'Index.js' is loading...");
 
