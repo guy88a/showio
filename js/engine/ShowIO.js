@@ -1,21 +1,23 @@
 /* :::::::::::::::::::::::::::::::::::::::::: {SHOW IO} :::::::::::::::::::::::::::::::::::::::::::
-# GAME VERSION: 0.00.003
+# GAME VERSION: 0.00.004
 - FILE VERSION: 1.01.002
 - INFO:
     Game (Show) constructor.
     Creates a new game instance with user's properties.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
+import scenesManager from './components/scenesManager/index.js';
+
 class ShowIO {
     /**
-     * 
-     * @param {String} _genre ............ GAME TYPE
-     * @param {Array} _dimensions ........ VIEW DIMENSIONS
-     * @param {Number} _mobile ........... IS MOBILE?
-     * @param {Object} _configurations ... GAME CONFIGURATIONS
-     * @param {Object} _controls ......... GAME CTONTROLS
-     * @param {Map} _scenes .............. GAME SCENES
-     * @param {Map} _assets .............. GAME ASSETS
+     * SHOWIO - MAIN GAME OBJECT
+     * @param {String} _genre ............. GAME TYPE
+     * @param {Array} _dimensions ......... VIEW DIMENSIONS
+     * @param {Number} _mobile ............ IS MOBILE?
+     * @param {Object} _configurations .... GAME CONFIGURATIONS
+     * @param {Object} _controls .......... GAME CTONTROLS
+     * @param {Array} _scenes ............. GAME SCENES
+     * @param {Array} _assets ............. GAME ASSETS
      */
     constructor(
         _genre          = 'FPS',
@@ -23,8 +25,8 @@ class ShowIO {
         _mobile         = 0,
         _configurations = function(){},
         _controls       = function(){},
-        _scenes         = new Map(),
-        _assets         = new Map(),
+        _scenes         = [],
+        _assets         = [],
         ) {
         // ======================================= SETTINGS =======================================
         // # GANRE: Game type. determines base physicss, rules, controls, etc...
@@ -35,9 +37,9 @@ class ShowIO {
         this.#mobile         = _mobile;
         // # FRAME: Scene name, Frame ID.
         this.#frame          = ['', 0];
-        // # CONFIGURATIONS: Game configurations - events, physics, rules, controls, audio, graphics, etc...
+        // # CONFIGURATIONS: Game configurations - events, physics, rules, base controls, audio, graphics, etc...
         this.#configurations = _configurations;
-        // # CONTROLS: Custom game controls.
+        // # CONTROLS: User's game controls.
         this.#controls       = _controls;
         // # SCENES: Game scenes. handled via 'scenesManager'.
         this.#scenes         = _scenes;
@@ -72,10 +74,10 @@ class ShowIO {
      * :::: Show Directions ::::::::::::::::::::::::::
      */
     setup() {
-
+        this.#scenesManager = new scenesManager(this.#scenes);
     }
-    run() {
-
+    run(sceneName = 'defalur', sceneID = 0) {
+        this.#scenesManager.runNextScene();
     }
     cut() {
 

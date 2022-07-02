@@ -12,6 +12,9 @@ window.L = new Logger(1);
 L.info("'Index.js' is loading...");
 
 var MyShow = new ShowIO();
+
+MyShow.setup();
+MyShow.run();
      
 L.success("'Index.js' loaded!");
 // L.warn("'Index.js' loaded warning test!");
