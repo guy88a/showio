@@ -35,9 +35,9 @@ class ShowIO {
         this.#mobile         = _mobile;
         // # FRAME: Scene name, Frame ID.
         this.#frame          = ['', 0];
-        // # CONFIGURATIONS: Game configurations - events, physics, rules, controls, audio, graphics, etc...
+        // # CONFIGURATIONS: Game configurations - events, physics, rules, base controls, audio, graphics, etc...
         this.#configurations = _configurations;
-        // # CONTROLS: Custom game controls.
+        // # CONTROLS: User's game controls.
         this.#controls       = _controls;
         // # SCENES: Game scenes. handled via 'scenesManager'.
         this.#scenes         = _scenes;
