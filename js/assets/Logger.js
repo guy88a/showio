@@ -1,6 +1,6 @@
 /* :::::::::::::::::::::::::::::::::::::::::: {LOGGER} ::::::::::::::::::::::::::::::::::::::::::::
-# GAME VERSION: 0.00.001
-- FILE VERSION: 1.00.000
+# GAME VERSION: 0.00.002
+- FILE VERSION: 1.00.002
 - INFO:
     ...info
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
@@ -48,11 +48,14 @@ export default function Logger(isTest = 0, forceTrace = 0) {
     }
 
     function extractMessageLink(str){
-        const matches = str.match(/'(.*?)'/);
-        const hasMatched = matches?.length > 0 ? 1 : 0;
-        const strMessage = hasMatched ? str.replace(`${matches[0]}`, '') : str;
-        const strLink = hasMatched ? matches[1] : '';
-        return [strLink, strMessage];
+        if(typeof str === 'string') {
+            const matches = str.match(/'(.*?)'/);
+            const hasMatched = matches?.length > 0 ? 1 : 0;
+            const strMessage = hasMatched ? str.replace(`${matches[0]}`, '') : str;
+            const strLink = hasMatched ? matches[1] : '';
+            return [strLink, strMessage];
+        }
+        return ['',`Stringified: ${new String(str)}`];
     }
 
     // ========================================= RETURN ===========================================
