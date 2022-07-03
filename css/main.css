@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 body {
   font-size: 16px;
   line-height: 1;
-  background-color: #000;
+  background-color: #0e0e0e;
 }
 
 ol, ul {
@@ -52,5 +52,13 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+canvas {
+  background-color: #080808;
+}
+
+canvas[data-off-canvas="true"] {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

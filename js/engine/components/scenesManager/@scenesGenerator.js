@@ -6,7 +6,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 /**
- * SCENES MANAGER - SCENES RENDERING
+ * SCENES GENERATOR
  * @param {Array} _scenes ................. USER'S SCEMES DATA
  * @returns {Map}
  */

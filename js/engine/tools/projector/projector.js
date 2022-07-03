@@ -8,7 +8,7 @@
 import { isDOMElement, isEmptyObject } from '../../utils/typecheck.js';
 
 /**
- * SCENES MANAGER - SCENES RENDERING
+ * PROJECTOR - CANVAS RENDERER
  * @param {Array} _type ................... CONTEXT TYPE
  * @param {String} _screenID .............. CANVAS ID
  * @param {String} _offscreenID ........... OFF-CANVAS ID
@@ -20,6 +20,7 @@ import { isDOMElement, isEmptyObject } from '../../utils/typecheck.js';
     _offscreenID = 'offscreen',
 ) {
 
+    this.broken = false;
     this.type = _type;
     this.screen = document.getElementById(_screenID);
     this.offscreen = document.getElementById(_offscreenID);
@@ -33,6 +34,8 @@ import { isDOMElement, isEmptyObject } from '../../utils/typecheck.js';
         if(isEmptyObject(this.ctx)) {
             if(!isDOMElement(this.screen)) {
                 L.error('no canvas elemnent');
+                this.broken = true;
+                return;
             }
         }
         draw = this.ctx.drawImage;
@@ -64,6 +67,7 @@ import { isDOMElement, isEmptyObject } from '../../utils/typecheck.js';
      * Game draw
      */
     function project() {
+        if(this.broken){ return; }
         function drawDemo(_ctx) {
             _ctx.beginPath();
             _ctx.lineWidth = 6;
@@ -80,6 +84,6 @@ import { isDOMElement, isEmptyObject } from '../../utils/typecheck.js';
 
     return {
         on: powerOn.bind(this),
-        project: project.bind(this),
+        project: project.bind(this), // TODO: test, remove from 'return'. should be used internally
     };
 }
