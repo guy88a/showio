@@ -32,7 +32,7 @@
 		font-size: #{$font-size}px;
 		line-height: 1;
 
-		background-color: #000;
+		background-color: #0e0e0e;
 	}
 	ol, ul {
 		list-style: none;
@@ -48,5 +48,12 @@
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
+	}
+	canvas {
+		background-color: #080808;
+
+		&[data-off-canvas="true"] {
+			display: none;
+		}
 	}
 }

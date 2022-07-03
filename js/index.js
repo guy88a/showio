@@ -11,13 +11,12 @@ window.L = new Logger(1);
 
 L.info("'Index.js' is loading...");
 
-var MyShow = new ShowIO();
+var MyShow = new ShowIO('FPS', [1200, 600]);
 
 MyShow.setup();
 MyShow.run();
      
 L.success("'Index.js' loaded!");
-// L.warn("'Index.js' loaded warning test!");
-// L.error("error test");
-// L.warn("warning test!");
-// MyShow.prepare();
+L.warn("Test warning");
+L.error("Test error");
+L.event("Event dispatched");

@@ -16,13 +16,15 @@ import projector from '../../tools/projector/projector.js';
  */
 export default function scenesManager(
     _scenes = [],
+    _screens = ['screen', 'offscreen'],
+    _screenType = '2d',
     _game = function(){},
 ) {
     
     // # SCENES: Game scenes. generated via '@scenesGenerator';
     this.scenes = scenesGenerator(_scenes);
 
-    var proj = new projector('2d', 'showio-screen', 'showio-off-screen');
+    var proj = new projector(_screenType, _screens[0], _screens[1]);
     proj.on();
     proj.project();
     

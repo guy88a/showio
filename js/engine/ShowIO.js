@@ -1,6 +1,6 @@
 /* :::::::::::::::::::::::::::::::::::::::::: {SHOW IO} :::::::::::::::::::::::::::::::::::::::::::
 # GAME VERSION: 0.00.004
-- FILE VERSION: 1.01.002
+- FILE VERSION: 1.01.003
 - INFO:
     Game (Show) constructor.
     Creates a new game instance with user's properties.
@@ -74,9 +74,10 @@ class ShowIO {
      * :::: Show Directions ::::::::::::::::::::::::::
      */
     setup() {
-        this.#scenesManager = new scenesManager(this.#scenes);
+        this.#scenesManager = new scenesManager(this.#scenes, ['showio-screen', 'showio-off-screen'], '2d', this);
+        // TODO: move screens array and context type to configurations utility.
     }
-    run(sceneName = 'defalur', sceneID = 0) {
+    run(sceneName = 'defalut', sceneID = 0) {
         this.#scenesManager.runNextScene();
     }
     cut() {
